@@ -53,13 +53,13 @@ def draw(info, prev_pos, canvas, img):
     return current_pos, canvas
 
 def sendToIA(canvas, fingers, model):
-    if fingers == [0, 1, 1, 1, 1]:
-        print("Sending to IA")
-        # pil_image = Image.fromarray(canvas)
-        # response = model.generate_content(["Solve this math problem:", pil_image])
-        # print(response.text)
+    if fingers == [1, 1, 1, 0, 1]:
+        pil_image = Image.fromarray(canvas)
+        response = model.generate_content(["Solve this math problem, and add a short explantion:", pil_image])
+        return response.text
         
 prev_pos = None   
 canvas = None
 image_combined = None
+cont = 0
 

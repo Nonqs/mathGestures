@@ -1,4 +1,5 @@
 from flask import Flask, Response, jsonify, render_template
+from flask_socketio import SocketIO, emit
 from main import getHandInfo, draw, sendToIA
 import cv2
 import numpy as np
@@ -26,6 +27,10 @@ canvas = None
 
 # Flask application
 app = Flask(__name__)
+socketio = SocketIO(app)
+
+# Global variable to store AI response
+ai_response = {"message": "No response yet"}
 
 @app.route('/')
 def index():
@@ -57,8 +62,11 @@ def video_feed():
             if info:
                 fingers, lmList = info
                 prev_pos, canvas = draw(info, prev_pos, canvas, img)
-                sendToIA(canvas, fingers, model)
+                ai_response_text = sendToIA(canvas, fingers, model)
 
+                if ai_response_text:
+                    socketio.emit('ai_response', {'message': ai_response_text})
+                
             # Combine the original image and the canvas
             combined_img = cv2.addWeighted(img, 0.7, canvas, 0.5, 0)
 
@@ -71,14 +79,12 @@ def video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
-@app.route('/send_to_ia', methods=['POST'])
-def handle_canvas():
+@app.route('/get_res', methods=['GET'])
+def get_response():
     """
-    Example endpoint for sending the canvas to the AI.
+    Endpoint to retrieve the last AI response.
     """
-    # The actual AI logic can be added here
-    return jsonify({"message": "Canvas processed by AI"})
-
+    return jsonify(ai_response)
 
 if __name__ == '__main__':
     app.run(debug=True)

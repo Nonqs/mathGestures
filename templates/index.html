@@ -5,13 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Camera</title>
     <link rel="stylesheet" href="/static/index.css" />
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Connect to the WebSocket server
+        const socket = io();
+
+        // Listen for the 'ai_response' event
+        socket.on("ai_response", (data) => {
+          console.log("AI Response:", data);
+          document.getElementById("ai-response").textContent = data.message
+          ;
+          if (data.result) {
+            document.getElementById("ai-result").textContent = data.message
+            ;
+          }
+        });
+      });
+    </script>
   </head>
   <body>
-    <h1>AI Camera with Hand Gestures</h1>
-    <div class="card">
-      <div class="card-body">
-        <img src="/video" alt="Video Stream" class="video" />
+    <h1>Math with Hand Gestures</h1>
+    <div class="container">
+      <div class="row g-4">
+        <!-- Camera Section (3/5) -->
+        <div class="col-lg-7 col-md-7">
+          <img src="/video" alt="Video Stream" class="video" />
+        </div>
+
+        <!-- Response Section (2/5) -->
+        <div class="col-lg-5 col-md-5">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">AI Answer</h5>
+              <pre id="ai-response" class="card-text">
+                Waiting for AI response...
+              </pre>
+              <p id="ai-result" class="card-text text-muted"></p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+TNIAXR7K5uexDgf8dFw3NsMBv5+Gp5OlL6/p7LbB0QWwBBJ6vvxkw5KLbb9Bm"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

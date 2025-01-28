@@ -1,20 +1,64 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; /* Light gray background */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 h1 {
-    color: #333;
-    margin-top: 20px;
+  text-align: center;
+  width: 40%;
+  padding: auto;
+  color: #343a40;
+  margin-top: 20px;
+  font-size: 2.5rem;
+  background-color: #fff;
+  padding-top: 10px;
+    padding-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  display: flex;
+}
+.video {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+}
+.card-title {
+  font-size: 1.5rem;
+  color: #343a40;
+  text-align: center;
+}
+.card-text {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #6c757d;
 }
 
-.video {
-    max-width: 80%; /* Limit the width of the video to 80% of the page */
-    height: auto;   /* Maintain the aspect ratio */
-    border: 2px solid black;
-    border-radius: 8px;
-    margin-top: 20px;
-}
+pre.card-text {
+    white-space: pre-wrap; /* Ensure long lines wrap instead of overflowing */
+    font-size: 1rem;
+    color: #6c757d;
+    background-color: transparent; /* Match the card background */
+    border: none;
+  }
