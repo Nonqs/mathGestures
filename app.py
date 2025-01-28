@@ -29,9 +29,6 @@ canvas = None
 app = Flask(__name__)
 socketio = SocketIO(app)
 
-# Global variable to store AI response
-ai_response = {"message": "No response yet"}
-
 @app.route('/')
 def index():
     """Serve the main frontend page."""
@@ -77,14 +74,3 @@ def video_feed():
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
-
-@app.route('/get_res', methods=['GET'])
-def get_response():
-    """
-    Endpoint to retrieve the last AI response.
-    """
-    return jsonify(ai_response)
-
-if __name__ == '__main__':
-    app.run(debug=True)

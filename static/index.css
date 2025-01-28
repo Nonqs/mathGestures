@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa; /* Light gray background */
+  background-color: #f8f9fa;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -41,8 +41,8 @@ h1 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   height: 100%;
   display: flex;
-  align-items: center; /* Center content vertically */
-  justify-content: center; /* Center content horizontally */
+  align-items: center; 
+  justify-content: center; 
 }
 .card-title {
   font-size: 1.5rem;
@@ -56,9 +56,9 @@ h1 {
 }
 
 pre.card-text {
-    white-space: pre-wrap; /* Ensure long lines wrap instead of overflowing */
+    white-space: pre-wrap; 
     font-size: 1rem;
     color: #6c757d;
-    background-color: transparent; /* Match the card background */
+    background-color: transparent;
     border: none;
   }

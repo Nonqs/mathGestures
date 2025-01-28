@@ -14,11 +14,9 @@
         // Listen for the 'ai_response' event
         socket.on("ai_response", (data) => {
           console.log("AI Response:", data);
-          document.getElementById("ai-response").textContent = data.message
-          ;
+          document.getElementById("ai-response").textContent = data.message;
           if (data.result) {
-            document.getElementById("ai-result").textContent = data.message
-            ;
+            document.getElementById("ai-result").textContent = data.message;
           }
         });
       });
@@ -28,12 +26,9 @@
     <h1>Math with Hand Gestures</h1>
     <div class="container">
       <div class="row g-4">
-        <!-- Camera Section (3/5) -->
         <div class="col-lg-7 col-md-7">
           <img src="/video" alt="Video Stream" class="video" />
         </div>
-
-        <!-- Response Section (2/5) -->
         <div class="col-lg-5 col-md-5">
           <div class="card">
             <div class="card-body">

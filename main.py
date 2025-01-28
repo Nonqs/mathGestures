@@ -61,5 +61,4 @@ def sendToIA(canvas, fingers, model):
 prev_pos = None   
 canvas = None
 image_combined = None
-cont = 0
 
