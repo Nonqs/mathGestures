@@ -1,6 +1,6 @@
-# AI Camera with Hand Gestures
+## AI Camera with Hand Gestures
 
-This project is a Flask-based application that uses a webcam to capture video, detect hand gestures, and send the captured canvas to a Generative AI model for processing. The AI responds with results, which are displayed in a user-friendly frontend.
+This project is a Flask-based application designed to interact with mathematical problems through hand gestures. Using a webcam, the application captures video, detects specific hand gestures, and allows users to draw mathematical expressions on a virtual canvas. The drawn expressions are processed by a Generative AI model, which interprets and solves the mathematical problems, providing step-by-step solutions. The results are displayed dynamically on a user-friendly frontend.
 
 ---
 
@@ -93,7 +93,7 @@ This project is licensed under the MIT License.
 ```
 MIT License
 
-Copyright (c) [Year] [Your Name]
+Copyright (c) 2025 Nonqs
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
